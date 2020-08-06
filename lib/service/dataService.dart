@@ -92,7 +92,8 @@ class DataService {
     List<WorldCovid> lstWorldCovid = [];
     String lastUpdate = Helper.convertTimeLastUpdate(covidModel.lastUpdate);
     lstWorldCovid.add(WorldCovid(
-        title: AppSetting.lastUpdate,
+        // title: AppSetting.lastUpdate,
+        title: "",
         iconUrl: AppSetting.iconLastUpdate,
         value: lastUpdate));
     lstWorldCovid.add(WorldCovid(
@@ -112,7 +113,7 @@ class DataService {
         iconUrl: AppSetting.iconTotalDeath,
         value: covidModel.totalDeathsText));
     lstWorldCovid.add(WorldCovid(
-        title: AppSetting.totalRecovered,
+        title: AppSetting.totalRecovered.replaceAll('Total ', ''),
         iconUrl: AppSetting.icontotalRecovered,
         value: covidModel.totalRecoveredText));
     return lstWorldCovid;

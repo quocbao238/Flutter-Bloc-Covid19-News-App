@@ -7,5 +7,5 @@ class Helper {
       DateFormat('dd-MM-yyyy').format(DateTime.parse(dataTime));
 
   static String convertTimeLastUpdate(String dataTime) =>
-      DateFormat('hh:mm dd-MM-yyyy').format(DateTime.parse(dataTime).toLocal());
+      DateFormat('hh:mm dd-MM-yyyy').format(DateTime.parse(dataTime).add(new Duration(hours: 7)));
 }

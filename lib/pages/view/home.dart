@@ -208,9 +208,10 @@ class _HomePageState extends State<HomePage> {
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: 10.0,
+                      crossAxisSpacing: 5.0,
                       mainAxisSpacing: 5.0,
-                      childAspectRatio: 0.95),
+                      childAspectRatio: MediaQuery.of(context).size.width /
+                          (MediaQuery.of(context).size.height / 1.55)),
                   itemCount: 4,
                   itemBuilder: (context, index) =>
                       AnimationConfiguration.staggeredGrid(
@@ -250,7 +251,9 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                          dataCovid[index]
+                                        dataCovid[index]
+                                              .title == AppSetting.totalCase ?  dataCovid[index]
+                                              .title :   dataCovid[index]
                                               .title
                                               .replaceAll(":", "")
                                               .replaceAll("Total", ""),
@@ -427,23 +430,28 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                              height: 30,
-                              width: 30.0,
+                              height: 35,
+                              width: 35.0,
                               child: SvgPicture.asset(
                                   worldCovid[itemIndex].iconUrl),
                             ),
-                            SizedBox(width: 4.0),
+                            SizedBox(width: 8.0),
                             Text(worldCovid[itemIndex].title,
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 16.0)),
                             SizedBox(width: 4.0),
-                            Text(worldCovid[itemIndex].value,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white70,
-                                    fontSize: 16.0))
+                            Text(
+                              worldCovid[itemIndex].value,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white70,
+                                fontSize: 16.0,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            )
                           ],
                         ),
                       ),
@@ -475,7 +483,7 @@ class _HomePageState extends State<HomePage> {
                 value: isGlobal,
               ),
             ),
-            Container(height: 1, color: Colors.black54),
+            Container(height: 1, color: Colors.black12),
             Expanded(
               child: ____menuItem(
                 image: AppSetting.icondGlobal,
@@ -586,7 +594,7 @@ class _HomePageState extends State<HomePage> {
                 .add(OnTapCarouselEvent(listNews[itemIndex].link));
           },
           child: Container(
-              height: 200,
+              height: MediaQuery.of(context).size.height * 0.4,
               child: Stack(
                 children: <Widget>[
                   ____carouseSliderItemImage(itemIndex),
