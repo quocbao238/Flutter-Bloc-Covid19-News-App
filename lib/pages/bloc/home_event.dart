@@ -15,5 +15,11 @@ class OnTapCarouselEvent extends HomeEvent {
 
 class OnChangeGlobalEvent extends HomeEvent {
   final bool isGlobal;
-  OnChangeGlobalEvent(this.isGlobal);
+  final String txtGlobal;
+  OnChangeGlobalEvent(this.isGlobal, this.txtGlobal);
+}
+
+class OnChangeCountryEvent extends HomeEvent {
+  final String countryName;
+  OnChangeCountryEvent(this.countryName);
 }

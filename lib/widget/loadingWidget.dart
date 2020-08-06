@@ -1,7 +1,6 @@
 import 'package:bCovid/setting/setting.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -36,26 +35,26 @@ class LoadingWidget extends StatelessWidget {
             children: <Widget>[
               Container(
                 height: MediaQuery.of(context).size.height * 0.6,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(bottom: 16.0),
-                      child: Text(AppSetting.title,
-                          style: GoogleFonts.volkhov(
-                            fontSize: 34.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          )),
-                    ),
-                    // Expanded(
-                    //   child: Container(
-                    //     padding: EdgeInsets.all(24.0),
-                    //     child: SvgPicture.asset(AppSetting.iconLoadCovid),
-                    //   ),
-                    // )
-                  ],
-                ),
+                // child: Column(
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: <Widget>[
+                //     Container(
+                //       margin: EdgeInsets.only(bottom: 16.0),
+                //       child: Text(AppSetting.title,
+                //           style: GoogleFonts.volkhov(
+                //             fontSize: 34.0,
+                //             color: Colors.black,
+                //             fontWeight: FontWeight.w500,
+                //           )),
+                //     ),
+                //     // Expanded(
+                //     //   child: Container(
+                //     //     padding: EdgeInsets.all(24.0),
+                //     //     child: SvgPicture.asset(AppSetting.iconLoadCovid),
+                //     //   ),
+                //     // )
+                //   ],
+                // ),
               ),
               Container(
                 height: 120,
