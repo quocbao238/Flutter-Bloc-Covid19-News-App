@@ -3,13 +3,14 @@ import 'package:bCovid/model/covid_model.dart';
 import 'package:bCovid/pages/bloc/home_bloc.dart';
 import 'package:bCovid/setting/setting.dart';
 import 'package:bCovid/widget/loadingWidget.dart';
+import 'package:bCovid/widget/modal_webview.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -79,8 +80,13 @@ class _HomePageState extends State<HomePage> {
           .searchCovidModelFromList(listCovidTotal, state.countryName);
       txtGlobal = state.countryName;
     } else if (state is OnTapCarouselState) {
-      linkNews = state.url;
-      isReadFeed = true;
+      showCupertinoModalBottomSheet(
+        expand: true,
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context, scrollController) =>
+            ModalWebView(scrollController: scrollController, url: state.url),
+      );
     }
   }
 
@@ -211,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisSpacing: 5.0,
                       mainAxisSpacing: 5.0,
                       childAspectRatio: MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 1.55)),
+                          (MediaQuery.of(context).size.height / 1.58)),
                   itemCount: 4,
                   itemBuilder: (context, index) =>
                       AnimationConfiguration.staggeredGrid(
@@ -251,12 +257,13 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       Text(
-                                        dataCovid[index]
-                                              .title == AppSetting.totalCase ?  dataCovid[index]
-                                              .title :   dataCovid[index]
-                                              .title
-                                              .replaceAll(":", "")
-                                              .replaceAll("Total", ""),
+                                          dataCovid[index].title ==
+                                                  AppSetting.totalCase
+                                              ? dataCovid[index].title
+                                              : dataCovid[index]
+                                                  .title
+                                                  .replaceAll(":", "")
+                                                  .replaceAll("Total", ""),
                                           style: TextStyle(
                                               fontWeight: FontWeight.w400,
                                               fontSize: 20.0,
@@ -284,63 +291,63 @@ class _HomePageState extends State<HomePage> {
       ),
     );
 
-    Widget _____pageFeedView() {
-      return Expanded(
-          flex: 9,
-          child: AnimatedContainer(
-              duration: Duration(milliseconds: 1000),
-              curve: Curves.easeInOut,
-              padding: EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.all(2),
-                child: Container(
-                  padding: EdgeInsets.only(top: 4.0),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black12,
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3) // changes position of shadow
-                          ),
-                    ],
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: AppSetting.backgroundColor3,
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.all(5.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.white,
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: WebviewScaffold(
-                          hidden: true,
-                          url: linkNews,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              )));
-    }
+    // Widget _____pageFeedView() {
+    //   return Expanded(
+    //       flex: 9,
+    //       child: AnimatedContainer(
+    //           duration: Duration(milliseconds: 1000),
+    //           curve: Curves.easeInOut,
+    //           padding: EdgeInsets.all(8.0),
+    //           child: Container(
+    //             padding: EdgeInsets.all(2),
+    //             child: Container(
+    //               padding: EdgeInsets.only(top: 4.0),
+    //               decoration: BoxDecoration(
+    //                 boxShadow: [
+    //                   BoxShadow(
+    //                       color: Colors.black12,
+    //                       spreadRadius: 5,
+    //                       blurRadius: 7,
+    //                       offset: Offset(0, 3) // changes position of shadow
+    //                       ),
+    //                 ],
+    //                 borderRadius: BorderRadius.circular(15.0),
+    //                 color: AppSetting.backgroundColor3,
+    //               ),
+    //               child: Container(
+    //                 padding: EdgeInsets.all(5.0),
+    //                 decoration: BoxDecoration(
+    //                   borderRadius: BorderRadius.circular(20.0),
+    //                   color: Colors.white,
+    //                 ),
+    //                 child: ClipRRect(
+    //                   borderRadius: BorderRadius.circular(20.0),
+    //                   child: Padding(
+    //                     padding: EdgeInsets.all(10.0),
+    //                     child: WebviewScaffold(
+    //                       hidden: true,
+    //                       url: linkNews,
+    //                     ),
+    //                   ),
+    //                 ),
+    //               ),
+    //             ),
+    //           )));
+    // }
 
-    if (isReadFeed) {
-      return _____pageFeedView();
-    } else {
-      if (isGlobal) {
-        if (txtGlobal == AppSetting.global) {
-          return _____globalName;
-        } else {
-          return _____covidData;
-        }
+    // if (isReadFeed) {
+    //   return _____pageFeedView();
+    // } else {
+    if (isGlobal) {
+      if (txtGlobal == AppSetting.global) {
+        return _____globalName;
       } else {
         return _____covidData;
       }
+    } else {
+      return _____covidData;
     }
+    // }
   }
 
   Widget ____covidWorldSlide() {

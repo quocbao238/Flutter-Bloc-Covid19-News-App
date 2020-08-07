@@ -40,7 +40,7 @@ dependencies:
   google_fonts: 1.1.0
   flutter_staggered_animations: 0.1.2
   flutter_webview_plugin: 0.3.11
-
+  modal_bottom_sheet: 0.2.0+1
 
 
 
