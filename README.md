@@ -36,4 +36,4 @@
 <img src="https://raw.githubusercontent.com/quocbao238/nCoV_News_Flutter/master/screenshot/5.png" width="400"/> 
 
 ### LiveApp
-- https://drive.google.com/file/d/1zxMquZv0zpvhNAUwMFKUmjOFL8GV31Sb/view
+[![Watch the video](<img src "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/YouTube_play_buttom_dark_icon_%282013-2017%29.svg/1280px-YouTube_play_buttom_dark_icon_%282013-2017%29.svg.png" width="400"/>)](https://drive.google.com/file/d/1zxMquZv0zpvhNAUwMFKUmjOFL8GV31Sb/view)
