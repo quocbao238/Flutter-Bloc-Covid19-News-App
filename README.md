@@ -35,5 +35,5 @@
 
 <img src="https://raw.githubusercontent.com/quocbao238/nCoV_News_Flutter/master/screenshot/5.png" width="400"/> 
 
-### LiveApp
+### Video Record
 [![Watch the video](https://lifelegaldefensefoundation.org/wp-content/uploads/2016/04/youtube-video-play-icon.png)](https://drive.google.com/file/d/1zxMquZv0zpvhNAUwMFKUmjOFL8GV31Sb/view)
