@@ -1,5 +1,5 @@
-# nCoV_News_App
-* nCoV News App help people Tracking COVID-19 Cases in Vietnam and the world, user can read new News about Covid in VnExpress 
+# Covid-19 News App
+* Covid-19 News App help people Tracking COVID-19 Cases in Vietnam and the world, user can read new News about Covid in VnExpress 
 * I have developed this app all by myself and I would be happy to share the APK of the app for testing purposes
 * Hope you like it 👍. Give me a star if you like it ⭐
 
