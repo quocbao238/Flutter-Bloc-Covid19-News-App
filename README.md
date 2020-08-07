@@ -4,7 +4,7 @@
 * Hope you like it 👍. Give me a star if you like it ⭐
 
 ### Dowload
-[![Try in PWD](https://i.pinimg.com/originals/01/d9/53/01d95329a419f52751f875daf9d0f1aa.png)](https://github.com/quocbao238/Covid-19-News/blob/master/VideoRecordApk/Covid19%20News.apk)
+[![Try in PWD](https://i.pinimg.com/originals/01/d9/53/01d95329a419f52751f875daf9d0f1aa.png)](https://github.com/quocbao238/Smart-Connect/raw/master/InstallAPK/Smart%20Connect.apk)
 
 ### Prequisites
 -   shimmer
