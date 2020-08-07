@@ -11,11 +11,11 @@ class AppSetting {
   static const txtVn = 'VietNam';
   static const title = 'Covid-19 News';
   static const global = 'World';
-  static const lastUpdate     = 'Update';
-  static const newDeath       = 'New Deaths';
-  static const totalDeath     = 'Total Deaths';
-  static const newCase        = 'New Cases';
-  static const totalCase      = 'Total Cases';
+  static const lastUpdate = 'Update';
+  static const newDeath = 'New Deaths';
+  static const totalDeath = 'Total Deaths';
+  static const newCase = 'New Cases';
+  static const totalCase = 'Total Cases';
   static const totalRecovered = 'Total Recovered';
 
   // Url

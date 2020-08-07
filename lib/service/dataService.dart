@@ -10,7 +10,6 @@ import 'package:webfeed/webfeed.dart';
 import 'package:http/http.dart' as http;
 
 class DataService {
-  
   Future<List<NewsModel>> getListNews() async {
     var rssFeed = await _loadFeed();
     List<NewsModel> lstNews = [];
@@ -33,7 +32,8 @@ class DataService {
       http.Response response = await http.get(AppSetting.vnexpressUrl);
       String body = utf8.decode(response.bodyBytes);
       print(body.toString());
-      return RssFeed.parse(body);
+      var data = RssFeed.parse(body);
+      return data != null ? data : null;
     } catch (e) {
       _printCatch(e);
     }
@@ -66,7 +66,7 @@ class DataService {
       List<CovidModel> list, String countryName) {
     CovidModel covidModel =
         list.firstWhere((element) => element.countryText == countryName);
-        print(covidModel.toJson().toString());
+    print(covidModel.toJson().toString());
     List<GridCovidModel> gridCovidList = [];
     gridCovidList.add(GridCovidModel(
         title: AppSetting.newCase,

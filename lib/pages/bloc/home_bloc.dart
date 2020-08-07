@@ -19,7 +19,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       var lstNews = await AppSetting.dataService.getListNews();
       var listCovidModel = await AppSetting.dataService.getListTotalCovid();
       if (lstNews.length > 0 && listCovidModel.length > 0) {
-        //Để load 5s xem hiệu ứng loading =))
+        /* 
+        Không phải cố tình delay đâu tại load dữ liệu nhanh quá không thể
+        hiện hết được widget loading nên để 5s :P
+        */
         await Future.delayed(Duration(milliseconds: 5000)); 
         yield FeatchDataSucessState(
             listNews: lstNews, listCovidModel: listCovidModel);
