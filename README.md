@@ -13,7 +13,7 @@
 -   modal_bottom_sheet
 -   cached_network_image
 -   RadpidAPI Covid Tracking
--   RSS of VnExpress 
+-   RSS VnExpress 
 
 ### Attractions
 -   Carousel News
